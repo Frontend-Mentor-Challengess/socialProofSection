@@ -1,0 +1,311 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
+$vd-magenta: #502050;
+$soft-pink: #ee68a4;
+$dg-magents: #937b92;
+$lg-magenta: #f7f2f7;
+$white: #ffffff;
+
+$weight400: 400;
+$weight500: 500;
+$weight700: 700;
+
+// *css reset*
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+body {
+  /* 3. Add accessible line-height */
+  line-height: 1.5;
+  /* 4. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 5. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 6. Inherit fonts for form controls */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 7. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 8. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+}
+
+//   /* Stars Styling */
+//   .stars {
+//     color: orange;
+//     font-size: 1.5rem;
+//     letter-spacing: 2px; /* Add spacing between stars */
+//   }
+
+body {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-image: url(./images/bg-pattern-top-desktop.svg),
+    url(./images/bg-pattern-bottom-desktop.svg);
+  background-repeat: no-repeat;
+  background-size: top 0% left 0%, right 0% bottom 0%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 4vh;
+  align-items: center;
+  justify-content: center;
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 90vw;
+    height: 90vh;
+    .block1 {
+      display: flex;
+      width: 100%;
+      flex-basis: 50%;
+      justify-content: center;
+      align-items: center;
+      .aside1 {
+        flex-basis: 40%;
+        .title {
+          color: $vd-magenta;
+          font-weight: $weight700;
+          font-size: 2.5rem;
+        }
+        .description {
+          color: $dg-magents;
+        }
+      }
+      .aside2 {
+        color: $vd-magenta;
+        flex-basis: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 5vh 8vw;
+        font-weight: $weight700;
+        gap: 2.5vh;
+        .star1,
+        .star2,
+        .star3 {
+          padding: 1.5vh 3vw;
+          border-radius: 10px;
+          background-color: $lg-magenta;
+          width: fit-content;
+
+          span {
+            color: orange;
+            margin-right: 1.5vw;
+            font-size: larger;
+            letter-spacing: 0.5vw;
+          }
+        }
+        .star1 {
+          align-self: flex-start;
+        }
+        .star2 {
+          align-self: center;
+        }
+        .star3 {
+          align-self: flex-end;
+        }
+      }
+    }
+    .block2 {
+      display: flex;
+      flex-basis: 50%;
+      width: 100%;
+      gap: 3vw;
+      section {
+        background-color: $vd-magenta;
+        padding: 1vh 4vw;
+        border-radius: 10px;
+        width: calc(100% / 3);
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        .profile-name {
+          display: flex;
+          align-items: center;
+          gap: 2vw;
+          .profile-pic {
+            border-radius: 100%;
+            width: 50px;
+            height: 50px;
+          }
+          .names {
+            color: $white;
+            display: inline-flex;
+            flex-direction: column;
+            span {
+              color: $soft-pink;
+              font-weight: $weight400;
+            }
+          }
+        }
+        .text {
+          color: $white;
+        }
+      }
+      .section1 {
+        align-self: flex-start;
+      }
+      .section2 {
+        align-self: center;
+      }
+      .section3 {
+        align-self: flex-end;
+      }
+    }
+  }
+  footer {
+    a {
+      color: $vd-magenta;
+      text-decoration: none;
+      &:hover{
+        color: $soft-pink;
+        transition: .3s ease-in-out;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  body {
+    background-image: url(./images/bg-pattern-top-mobile.svg)
+      url(./images/bg-pattern-bottom-mobile.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    main {
+      height: 200vh;
+      gap: 3vh;
+      .block1 {
+        flex-direction: column;
+        align-items: center;
+        .aside1 {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          flex-basis: 50%;
+          .title {
+            line-height: 1;
+          }
+          .description {
+            padding-top: 2vh;
+          }
+        }
+        .aside2 {
+          padding: 0;
+          width: 100%;
+          align-self: stretch;
+          flex-basis: 50%;
+          .star1,
+          .star2,
+          .star3 {
+            align-items: center;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+          }
+        }
+      }
+      .block2 {
+        flex-direction: column;
+        section {
+          width: 100%;
+          height: calc(100% / 3);
+        }
+      }
+    }
+    footer {
+      margin: 0 10vw;
+    }
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  body {
+    main {
+      height: 200vh;
+      width: 90vw;
+      .block1 {
+        flex-basis: 40%;
+        .aside1 {
+          .title {
+          }
+          .description {
+          }
+        }
+        .aside2 {
+          padding: 0;
+          .star1,
+          .star2.star3 {
+          }
+        }
+      }
+      .block2 {
+        padding: 0;
+        flex-basis: 60%;
+        section {
+          width: calc(100% / 3);
+          height: fit-content;
+          padding: 4vh 3vw;
+          .profile-name {
+            .profile-pic {
+            }
+            .names {
+              span {
+              }
+            }
+          }
+          .text {
+          }
+        }
+      }
+    }
+  }
+}
+
+// 769 1024
